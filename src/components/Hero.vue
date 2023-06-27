@@ -4,7 +4,7 @@
             <div class="hero-teg">👋 Meet Personally</div>
             <div class="hero-text">
                 <h1 class="text-h1">Minimal blog template for creative expressions</h1>
-                <p class="text-p2">100% customisable and SEO-friendly blog template for personal and commercial purposes.</p>
+                <p class="text-p">100% customisable and SEO-friendly blog template for personal and commercial purposes.</p>
             </div>
         </div>
     </div>
@@ -38,6 +38,17 @@
     font-weight: 700;
     line-height: 120%;
     letter-spacing: -2.28px;
-    color: linear-gradient(rgba(196, 23, 64, 1), rgba(234, 156, 40, 1));
+    background: linear-gradient(45deg, #C41740,  33%, #EA9C28 66%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.text-p {
+    margin: 0 auto;
+    margin-top: 20px;
+    text-align: center;
+    max-width: 690px;
+    color: #475467;
+    font-size: 28px;
+    line-height: 150%; 
 }
 </style>
