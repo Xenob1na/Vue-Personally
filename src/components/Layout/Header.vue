@@ -8,12 +8,17 @@
                     <nav class="navigation">
                         <ul>
                             <li v-for="(navs, index) in nav">
-                                <router-link :to="navs.path" class="li">{{ navs.name }}</router-link>
+                                <router-link 
+                                :to="navs.path" 
+                                class="li" 
+                                >{{ navs.name }}</router-link>
                             </li>
                         </ul>
                     </nav>
                     <div class="btn">
-                        <button class="btn-sub">Subscribe</button>
+                        <a href="#sub" style="color: white;">
+                            <button class="btn-sub">Subscribe</button>
+                        </a>
                     </div>
                 </header>
             </div>
@@ -78,6 +83,12 @@ const nav = ref([
     cursor: pointer;
 }
 .btn-sub:hover {
-    background-color: #0e151d;
+    background-color: #0e1218;
+}
+
+.navigation ul li .li:focus {
+    background: linear-gradient(45deg, #C41740,  33%, #EA9C28 66%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 </style>

@@ -1,6 +1,7 @@
 <template>
     <div>
-        <div class="container-post">
+        <router-link :to="{path: `/Post/${post_data.id}`}" >
+            <div class="container-post">
                 <div class="post-text">
                     <p class="post-text-p">{{ post_data.date }}</p>
                     <h4 class="post-text-h4">{{ post_data.title }}</h4>
@@ -10,6 +11,7 @@
                     <img :src="post_data.img" alt="">
                 </div>
             </div>
+        </router-link>
     </div>
 </template>
 
@@ -29,7 +31,7 @@ export default {
 </script>
 
 <style scoped>
-    .container-post {
+.container-post {
     max-width: 1170px;
     background-color: #fff;
     border-radius: 20px;
@@ -37,6 +39,11 @@ export default {
     justify-content: space-between;
     padding: 30px 24px;
     margin-top: 55px;
+    cursor: pointer;
+    transition: transform 0.25s;
+}
+.container-post:hover {
+    transform: scale(1.1);
 }
 .post-text-p {
     margin: 0;

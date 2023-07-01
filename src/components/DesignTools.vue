@@ -40,6 +40,7 @@ export default {
 .container {
     max-width: 1170px;
     margin: 0 auto;
+    padding-bottom: 80px;
 }
 .up-title {
     display: flex;
