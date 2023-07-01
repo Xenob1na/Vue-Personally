@@ -3,7 +3,9 @@
         <div class="container">
             <div class="up-title">
                 <h4 class="up-title-h4">Daily Digest</h4>
-                <router-link to="/Daily-Digest"><button class="up-title-btn">View all</button></router-link>
+                <router-link to="/Daily-Digest">
+                    <button class="up-title-btn">View all</button>
+                </router-link>
             </div>
             <DailyDigestItem 
             v-for="(posts, index) in info.slice(0,3)"
@@ -25,6 +27,11 @@ export default {
             info: []
         }
     },
+    // methods: {
+    //     navigate(posts) {
+    //         this.$router.push({name: 'Post', params: {postId: posts.id}})
+    //     }
+    // },
     mounted() {
     axios
       .get('http://localhost:3000/post')

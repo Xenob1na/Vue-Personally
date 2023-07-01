@@ -3,41 +3,41 @@
         <div class="container">
             <div class="container-info">
                 <div class="info-text">
-                    <h2 class="info-h2">{{ Post.title }}</h2>
-                    <p class="info-p">{{Post.date}} | {{Post.slug}}</p>
+                    <h2 class="info-h2">{{ posts.title }}</h2>
+                    <p class="info-p">{{posts.date}} | {{posts.slug}}</p>
                 </div>
             </div>
             <div class="info-img">
-                <img :src="Post.img" alt="">
+                <img :src="posts.img" alt="">
             </div>
             <div class="info-main-text">
-                <p class="info-main-text-p">Dolore placeat quibusdam ea quo vitae\nmagni quis enim qui quis quo nemo aut saepe\nquidem repellat excepturi ut quia\nsunt ut sequi eos ea sed quas</p>
-                <p class="info-main-text-p">Dolore placeat quibusdam ea quo vitae\nmagni quis enim qui quis quo nemo aut saepe\nquidem repellat excepturi ut quia\nsunt ut sequi eos ea sed quas</p>
+                <p class="info-main-text-p">{{ posts.body }}</p>
+                <p class="info-main-text-p">{{ posts.body }}</p>
                 
-                <p class="info-main-text-p">Dolore placeat quibusdam ea quo vitae\nmagni quis enim qui quis quo nemo aut saepe\nquidem repellat excepturi ut quia\nsunt ut sequi eos ea sed quas</p>
-                <p class="info-main-text-p">Dolore placeat quibusdam ea quo vitae\nmagni quis enim qui quis quo nemo aut saepe\nquidem repellat excepturi ut quia\nsunt ut sequi eos ea sed quas</p>
+                <p class="info-main-text-p">{{ posts.body }}</p>
+                <p class="info-main-text-p">{{ posts .body }}</p>
             </div>
             <hr class="hr">
             <Subscribe />
+            {{ posts }}
         </div>
     </div>
 </template>
 
 <script>
-import db from '/db.json'
+import Post from '../mocks/Post';
 import Subscribe from '../components/Subscribe.vue';
 export default {
     name: 'Post',
     components: {Subscribe},
     data() {
         return {
-           
         }
     },
   created() {
-        const Post = db.find(Post => Post.id == this.$route.params.id)
-        if (Post) {
-        this.Post = Post
+        const posts = Post.find(posts => posts.id == this.$route.params.id)
+        if (posts) {
+        this.posts = posts
         }
     },
 }
