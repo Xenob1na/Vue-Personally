@@ -1,6 +1,6 @@
 <template>
     <div>
-        <router-link :to="{path: `/Post/${post_data.id}`}" >
+        <router-link :to="{name: 'Post', params: {id: post_data.id}}" >
             <div class="container-post">
                 <div class="post-text">
                     <p class="post-text-p">{{ post_data.date }}</p>

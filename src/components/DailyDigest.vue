@@ -27,11 +27,6 @@ export default {
             info: []
         }
     },
-    // methods: {
-    //     navigate(posts) {
-    //         this.$router.push({name: 'Post', params: {postId: posts.id}})
-    //     }
-    // },
     mounted() {
     axios
       .get('http://localhost:3000/post')

@@ -15,11 +15,10 @@
                 <p class="info-main-text-p">{{ posts.body }}</p>
                 
                 <p class="info-main-text-p">{{ posts.body }}</p>
-                <p class="info-main-text-p">{{ posts .body }}</p>
+                <p class="info-main-text-p">{{ posts.body }}</p>
             </div>
             <hr class="hr">
             <Subscribe />
-            {{ posts }}
         </div>
     </div>
 </template>
@@ -32,6 +31,7 @@ export default {
     components: {Subscribe},
     data() {
         return {
+            Post: []
         }
     },
   created() {
