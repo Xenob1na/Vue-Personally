@@ -1,45 +1,49 @@
 <template>
-    <div>
+    <div v-if="Post">
         <div class="container">
             <div class="container-info">
                 <div class="info-text">
-                    <h2 class="info-h2">{{ posts.title }}</h2>
-                    <p class="info-p">{{posts.date}} | {{posts.slug}}</p>
+                    <h2 class="info-h2">{{ Post.title }}</h2>
+                    <p class="info-p">{{Post.date}} | {{Post.slug}}</p>
                 </div>
             </div>
             <div class="info-img">
-                <img :src="posts.img" alt="">
+                <img :src="Post.img" alt="">
             </div>
             <div class="info-main-text">
-                <p class="info-main-text-p">{{ posts.body }}</p>
-                <p class="info-main-text-p">{{ posts.body }}</p>
+                <p class="info-main-text-p">{{ Post.body }}</p>
+                <p class="info-main-text-p">{{ Post.body }}</p>
                 
-                <p class="info-main-text-p">{{ posts.body }}</p>
-                <p class="info-main-text-p">{{ posts.body }}</p>
+                <p class="info-main-text-p">{{ Post.body }}</p>
+                <p class="info-main-text-p">{{ Post.body }}</p>
             </div>
             <hr class="hr">
             <Subscribe />
         </div>
     </div>
+    <div v-else>
+        <h1 class="info-loading">Loading in progress</h1>
+    </div>
 </template>
 
 <script>
-import Post from '../mocks/Post';
 import Subscribe from '../components/Subscribe.vue';
 export default {
     name: 'Post',
     components: {Subscribe},
+    props: ['id'],
     data() {
         return {
-            Post: []
+            Post: null
         }
     },
-  created() {
-        const posts = Post.find(posts => posts.id == this.$route.params.id)
-        if (posts) {
-        this.posts = posts
-        }
-    },
+    mounted() {
+    fetch('http://localhost:3000/post/' + this.id)
+      .then(res => res.json())
+      .then(data => this.Post = data)
+      .catch(err => console.log(err.message))
+  }
+
 }
 </script>
 
@@ -95,5 +99,15 @@ export default {
 .hr {
     border: 1px solid;
     color: rgb(216, 212, 212);
+}
+.info-loading {
+    font-size: 50px;
+    font-weight: 700;
+    line-height: 120%;
+    letter-spacing: -2.28px;
+    background: linear-gradient(45deg, #C41740,  33%, #EA9C28 66%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
 }
 </style>

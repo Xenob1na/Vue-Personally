@@ -1,5 +1,5 @@
 <template>
-    <div class="bg">
+    <div class="bg" v-if="info">
         <div class="container">
             <div class="up-title">
                 <h4 class="up-title-h4">Daily Digest</h4>
@@ -14,6 +14,9 @@
             />
         </div>
     </div>
+    <div v-else>
+        <h1 class="info-loading">Loading in progress</h1>
+    </div>
 </template>
 
 <script>
@@ -24,7 +27,7 @@ export default {
     components: {DailyDigestItem},
     data() {
         return {
-            info: []
+            info: null
         }
     },
     mounted() {
@@ -70,5 +73,14 @@ export default {
     background-color: #1D2939;
     color: #fff;
 }
-
+.info-loading {
+    font-size: 50px;
+    font-weight: 700;
+    line-height: 120%;
+    letter-spacing: -2.28px;
+    background: linear-gradient(45deg, #C41740,  33%, #EA9C28 66%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+}
 </style>

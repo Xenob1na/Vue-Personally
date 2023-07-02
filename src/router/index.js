@@ -31,6 +31,7 @@ const router = createRouter({
     {
       path: '/Post/:id',
       name: 'Post',
+      props: true,
       component: Post
     },
   ]
